@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f4a30799b174724a9d563aaff838ee, type: 3}
   m_Name: BrightsideBicyleYawRateModel
   m_EditorClassIdentifier: Assembly-CSharp::Solstice.Dynamics.BicycleYawRateModel
-  wheelBase: 2.5
+  wheelBase: 2.8
+  steeringRatio: 15
