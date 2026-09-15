@@ -6,6 +6,6 @@ namespace Solstice.Dynamics
     // drag them into a Player's force model list to tune them per-instance.
     public abstract class ForceModel : ScriptableObject, IForceModel
     {
-        public abstract Vector3 ComputeForce(VehicleFrame frame);
+        public abstract Vector2 ComputeForce(VehicleFrame2D frame);
     }
 }

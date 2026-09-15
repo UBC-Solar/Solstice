@@ -6,6 +6,7 @@ namespace Solstice.Dynamics
     [CreateAssetMenu(menuName = "Solstice/Dynamics/Tractive Force Model", fileName = "TractiveForceModel")]
     public class TractiveForceModel : ForceModel
     {
-        public override Vector3 ComputeForce(VehicleFrame frame) => frame.Forward * frame.State.TractiveForce.Value;
+        public override Vector2 ComputeForce(VehicleFrame2D frame) =>
+            frame.Forward * (frame.State.MotorForce.Value + frame.State.MechBrakeForce.Value);
     }
 }

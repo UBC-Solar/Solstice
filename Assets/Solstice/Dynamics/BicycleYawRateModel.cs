@@ -14,12 +14,12 @@ namespace Solstice.Dynamics
         // magnitude too fast (35 deg at 25 m/s works out to roughly 400 deg/s).
         [SerializeField] private float steeringRatio = 15f;
 
-        public override float ComputeYawRate(VehicleFrame frame)
+        public override float ComputeYawRate(VehicleFrame2D frame)
         {
-            if (frame.Speed <= 0.01f) return 0f;
+            // if (frame.Speed <= 0.01f) return 0f;
 
             float roadWheelAngleRad = frame.State.SteeringWheelAngle.Value / steeringRatio * Mathf.Deg2Rad;
-            return frame.Speed / wheelBase * Mathf.Tan(roadWheelAngleRad);
+            return frame.Velocity.magnitude / wheelBase * Mathf.Tan(roadWheelAngleRad);
         }
     }
 }

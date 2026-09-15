@@ -25,18 +25,17 @@ namespace Solstice.Dynamics
         // Friction circle ceiling. ~8 m/s^2 is about 0.8g, a decent road tire.
         [SerializeField] private float maxLateralAcceleration = 8f;
 
-        public override Vector3 ComputeForce(VehicleFrame frame)
+        public override Vector2 ComputeForce(VehicleFrame2D frame)
         {
-            if (frame.GroundedFraction <= 0f) return Vector3.zero;
 
-            float lateralSpeed = Vector3.Dot(frame.Velocity, frame.Right);
+            float lateralSpeed = Vector2.Dot(frame.Velocity, frame.Right);
             float acceleration = Mathf.Clamp(-lateralSpeed / gripTimeConstant, -maxLateralAcceleration, maxLateralAcceleration);
 
             // Applied at the center of mass, so cornering produces no body roll.
             // Getting roll out of this means moving to per-wheel tire forces
             // applied at each contact patch, with the friction clamp scaled by
             // that wheel's own suspension normal force.
-            return frame.Right * (acceleration * frame.Mass * frame.GroundedFraction);
+            return frame.Right * (acceleration * frame.Mass);
         }
     }
 }

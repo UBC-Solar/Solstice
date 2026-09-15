@@ -21,9 +21,9 @@ namespace Solstice
         {
             float acceleratorPercent = Mathf.Clamp(message.AccelerationValue, 0f, 100f);
             float motorCurrent = acceleratorPercent / 100f * MaxCurrentAmps;
-            float tractiveForce = motorCurrent * ForcePerAmp;
+            float motorForce = motorCurrent * ForcePerAmp;
 
-            _vehicleState.TractiveForce.Set(tractiveForce);
+            _vehicleState.MotorForce.Set(motorForce);
         }
 
         void OnDisable()
