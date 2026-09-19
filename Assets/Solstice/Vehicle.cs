@@ -6,6 +6,7 @@ namespace Solstice
     {
         [SerializeField] private DriverDashboard _driverDashboard;
         [SerializeField] private Motor _motor;
+        [SerializeField] private MechBrake _brake;
         [SerializeField] private VehicleState _vehicleState;
 
         private MessageBus _messageBus;
@@ -16,6 +17,7 @@ namespace Solstice
 
             _driverDashboard.Construct(_messageBus, _vehicleState);
             _motor.Construct(_messageBus, _vehicleState);
+            _brake.Construct(_messageBus, _vehicleState);
         }
     }
 }

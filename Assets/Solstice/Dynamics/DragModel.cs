@@ -25,19 +25,15 @@ namespace Solstice.Dynamics
         // over the first fraction of a m/s instead.
         [SerializeField] private float rollingResistanceFadeInSpeed = 0.5f;
 
-        public override Vector3 ComputeForce(VehicleFrame frame)
+        public override Vector2 ComputeForce(VehicleFrame2D frame)
         {
-            float speed = frame.Speed;
-            if (speed < 1e-4f) return Vector3.zero;
+            float speed = frame.Velocity.magnitude;
 
-            Vector3 direction = frame.Velocity / speed;
+            Vector2 direction = frame.Velocity.normalized;
 
             float aerodynamicDrag = 0.5f * airDensity * dragArea * speed * speed;
-
-            // Rolling resistance is transmitted through the tires, so it only
-            // exists for wheels that are actually on the ground.
+            
             float rollingResistance = rollingResistanceCoefficient * frame.Mass * gravityAcceleration
-                                      * frame.GroundedFraction
                                       * Mathf.Clamp01(speed / rollingResistanceFadeInSpeed);
 
             return -direction * (aerodynamicDrag + rollingResistance);

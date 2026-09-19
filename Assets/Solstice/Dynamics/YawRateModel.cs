@@ -6,6 +6,6 @@ namespace Solstice.Dynamics
     // drag them into a Player's yaw rate model list to tune them per-instance.
     public abstract class YawRateModel : ScriptableObject, IYawRateModel
     {
-        public abstract float ComputeYawRate(VehicleFrame frame);
+        public abstract float ComputeYawRate(VehicleFrame2D frame);
     }
 }

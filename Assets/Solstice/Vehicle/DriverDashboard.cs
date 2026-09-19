@@ -11,8 +11,10 @@ namespace Solstice
         protected override void OnTick()
         {
             float accelerationValue = _vehicleState.AcceleratorPosition.Value;
-            
             _messageBus.Publish(new AccelerationMessage(accelerationValue));
+            
+            float mechBrakeValue = _vehicleState.MechBrakePosition.Value;
+            _messageBus.Publish(new MechBrakeMessage(mechBrakeValue));
         }
 
         public void Construct(MessageBus messageBus, VehicleState vehicleState)
