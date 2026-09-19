@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a443d7ede6d441aa8e894c19c692a3b8, type: 3}
+  m_Name: Frame
+  m_EditorClassIdentifier: Assembly-CSharp::Solstice.Localization.WorldFrame
+  pointA:
+    latitude: 38.924786
+    longitude: -95.675054
+    simulationPoint: {x: -24.62528, y: 39.54902}
+  pointB:
+    latitude: 38.925343
+    longitude: -95.675026
+    simulationPoint: {x: 4.68472, y: 38.62902}
