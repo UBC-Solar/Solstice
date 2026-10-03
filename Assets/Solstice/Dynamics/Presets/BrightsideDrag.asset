@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BrightsideDrag
   m_EditorClassIdentifier: Assembly-CSharp::Solstice.Dynamics.DragModel
   airDensity: 1.225
-  dragArea: 0.1
-  rollingResistanceCoefficient: 0.008
+  dragArea: 0.138
+  rollingResistanceCoefficient: 0.0234
   gravityAcceleration: 9.81
   rollingResistanceFadeInSpeed: 0.5

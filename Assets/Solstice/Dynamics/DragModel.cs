@@ -36,6 +36,7 @@ namespace Solstice.Dynamics
 
             // Rolling resistance is transmitted through the tires, so it only
             // exists for wheels that are actually on the ground.
+            // TODO: Is it correct to account for frame.GroundedFraction? Less tires means technically less contact but also more weight on each tire => maybe cancels?
             float rollingResistance = rollingResistanceCoefficient * frame.Mass * gravityAcceleration
                                       * frame.GroundedFraction
                                       * Mathf.Clamp01(speed / rollingResistanceFadeInSpeed);
