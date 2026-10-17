@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Track : BezierSpline
 {
-    [Tooltip("Automatically align handles when extending the track.")]
+    [Tooltip("Automatically align handles when extending the track")]
     public bool enforceG1WhenExtending = true;
     public bool alwaysEnforceG1 = true;
 
