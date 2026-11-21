@@ -33,7 +33,6 @@ public class BezierCurve : MonoBehaviour
 /// </summary>
     private void flattenY()
     {
-        
         setY(point0, 0);
         setY(point1, 0);
         setY(point2, 0);

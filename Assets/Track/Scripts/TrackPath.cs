@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 
 public class Track : BezierSpline
@@ -7,6 +8,9 @@ public class Track : BezierSpline
     public bool enforceG1WhenExtending = true;
     public bool alwaysEnforceG1 = true;
 
+    public bool closeLoop = false;
+
+    public Transform trackedObject;
     public override BezierCurve ExtendSpline()
     {
         BezierCurve curve = base.ExtendSpline();
@@ -19,15 +23,21 @@ public class Track : BezierSpline
 
     private void Update() {
         if(alwaysEnforceG1){EnforceG1();}
+        if(closeLoop){CloseLoop();}
     }
     public void EnforceG1()
     {
         curves.RemoveAll(curve => curve == null);
 
-        for (int i = 0; i < curves.Count - 1; i++)
+        int curveCount = curves.Count;
+
+        for (int i = 0; i < curves.Count; i++)
         {
-            BezierCurve previous = curves[i];
-            BezierCurve next = curves[i + 1];
+            if (curveCount == 1)
+                continue;
+            
+            BezierCurve previous = curves[i % curveCount];
+            BezierCurve next = curves[(i + 1) % curveCount];
 
             if (previous == null || next == null)
                 continue;
@@ -52,5 +62,19 @@ public class Track : BezierSpline
                 next.point0.position +
                 direction * handleLength;
         }
+    }
+
+    public void CloseLoop()
+    {
+        BezierCurve finalCurve = curves[curves.Count - 1];
+        BezierCurve firstCurve = curves[0];
+        
+        Vector3 finalPointPos = new Vector3(0f, 0f, 0f);
+
+        finalPointPos.Set(finalCurve.point3.position.x,
+                          finalCurve.point3.position.y,
+                          finalCurve.point3.position.z);
+
+        firstCurve.point0.position = finalPointPos;
     }
 }
