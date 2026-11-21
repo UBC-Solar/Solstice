@@ -1,13 +1,9 @@
 
-<<<<<<< HEAD
 using System;
-=======
->>>>>>> 6542ee1 (Implemented Bezier Curve Object)
 using UnityEngine;
 
 public class Track : BezierSpline
 {
-<<<<<<< HEAD
     [Tooltip("Automatically align handles when extending the track")]
     public bool enforceG1WhenExtending = true;
     public bool alwaysEnforceG1 = true;
@@ -15,12 +11,6 @@ public class Track : BezierSpline
     public bool closeLoop = false;
 
     public Transform trackedObject;
-=======
-    [Tooltip("Automatically align handles when extending the track.")]
-    public bool enforceG1WhenExtending = true;
-    public bool alwaysEnforceG1 = true;
-
->>>>>>> 6542ee1 (Implemented Bezier Curve Object)
     public override BezierCurve ExtendSpline()
     {
         BezierCurve curve = base.ExtendSpline();
@@ -33,16 +23,12 @@ public class Track : BezierSpline
 
     private void Update() {
         if(alwaysEnforceG1){EnforceG1();}
-<<<<<<< HEAD
         if(closeLoop){CloseLoop();}
-=======
->>>>>>> 6542ee1 (Implemented Bezier Curve Object)
     }
     public void EnforceG1()
     {
         curves.RemoveAll(curve => curve == null);
 
-<<<<<<< HEAD
         int curveCount = curves.Count;
 
         for (int i = 0; i < curves.Count; i++)
@@ -52,12 +38,6 @@ public class Track : BezierSpline
             
             BezierCurve previous = curves[i % curveCount];
             BezierCurve next = curves[(i + 1) % curveCount];
-=======
-        for (int i = 0; i < curves.Count - 1; i++)
-        {
-            BezierCurve previous = curves[i];
-            BezierCurve next = curves[i + 1];
->>>>>>> 6542ee1 (Implemented Bezier Curve Object)
 
             if (previous == null || next == null)
                 continue;
@@ -83,7 +63,6 @@ public class Track : BezierSpline
                 direction * handleLength;
         }
     }
-<<<<<<< HEAD
 
     public void CloseLoop()
     {
@@ -98,6 +77,4 @@ public class Track : BezierSpline
 
         firstCurve.point0.position = finalPointPos;
     }
-=======
->>>>>>> 6542ee1 (Implemented Bezier Curve Object)
 }

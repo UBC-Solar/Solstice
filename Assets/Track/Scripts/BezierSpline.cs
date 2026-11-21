@@ -45,20 +45,11 @@ public class BezierSpline : MonoBehaviour
 
             tangent.Normalize();
 
-<<<<<<< HEAD
             // Position the new curve object at the previous endpoint
-=======
-            // Position the new curve object at the previous endpoint.
->>>>>>> 6542ee1 (Implemented Bezier Curve Object)
             curveObject.transform.position = start.position;
             curveObject.transform.rotation =
                 Quaternion.LookRotation(tangent, Vector3.up);
 
-<<<<<<< HEAD
-=======
-            // The curve's control points are children, so set them
-            // in local coordinates relative to the new curve object.
->>>>>>> 6542ee1 (Implemented Bezier Curve Object)
             Transform oldPoint0 = curve.point0;
 
             curve.point0 = start;
@@ -73,11 +64,7 @@ public class BezierSpline : MonoBehaviour
         }
         else
         {
-<<<<<<< HEAD
             // For the first curve, use the spline's position and orientation
-=======
-            // For the first curve, use the spline's position and orientation.
->>>>>>> 6542ee1 (Implemented Bezier Curve Object)
             curveObject.transform.position = transform.position;
             curveObject.transform.rotation = transform.rotation;
         }
